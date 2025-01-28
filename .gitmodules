@@ -1,0 +1,8 @@
+[submodule "MOGDx"]
+	path = MOGDx
+	url = https://github.com/Barry8197/MOGDx.git
+	branch = MO-LLM
+[submodule "LLM-EMBED"]
+	path = LLM-EMBED
+	url = https://github.com/clee1997/LLM-EMBED.git
+
