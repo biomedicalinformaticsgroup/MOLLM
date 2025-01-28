@@ -1,8 +1,5 @@
-import hydra
 from omegaconf import DictConfig, OmegaConf
 from typing import Dict, Any, List, Union, Optional
-import random
-import yaml
 import numpy as np
 import pandas as pd
 import torch
@@ -166,10 +163,7 @@ class MDSUPDRS(torch.utils.data.Dataset):
     
     @staticmethod
     def collate_fn(batch):
-        """Custom collate function to handle batching.
-        This function takes a list of individual items (returned by __getitem__)
-        and combines them into a batch.
-        """
+        """Custom collate function """
     
         patient_id_batch = [item['patient_id'] for item in batch]
         event_id_batch = [item['event_id'] for item in batch]

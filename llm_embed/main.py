@@ -1,7 +1,5 @@
 import hydra
 from omegaconf import DictConfig, OmegaConf
-from typing import Dict, List, Tuple, Any, Union, Optional
-from functools import partial
 from embed import LLMEmbed
 from models import HFEncoder
 from dataset import MDSUPDRS

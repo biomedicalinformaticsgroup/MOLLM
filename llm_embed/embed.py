@@ -1,21 +1,9 @@
 import torch
 from torch.utils.data import DataLoader
-from transformers import AutoTokenizer, AutoModelForCausalLM
-from omegaconf import OmegaConf, DictConfig
 from typing import Any, List, Union, Optional
 import numpy as np
 import os
 import pickle
-from scipy.stats import pearsonr, spearmanr
-from sklearn.metrics.pairwise import paired_cosine_distances, paired_manhattan_distances, paired_euclidean_distances
-import logging
-import hydra
-from omegaconf import DictConfig
-from abc import ABC, abstractmethod
-import torch
-from transformers import AutoModelForCausalLM, AutoTokenizer
-from typing import Any, List, Optional, Sequence, Union
-import openai
 from tqdm import tqdm
 from datetime import datetime
 
@@ -33,12 +21,10 @@ class LLMEmbed:
         **kwargs,
     ):
         """
-        STS evaluator for datasets with single sentences.
 
         Args:
             dataset: The dataset object containing single sentences and their associated scores.
             batch_size (int): Batch size for processing.
-            limit (int): Optional limit to reduce the dataset size for testing purposes.
             save_path (str): Directory path to save embeddings after each batch iteration.
         """
         self.dataset = dataset
@@ -92,17 +78,8 @@ class LLMEmbed:
 
     def __call__(
         self,
-        model: Any,  # This can be HuggingFaceEncoder, OpenAIEncoder, etc.
+        model: Any,  
     ):
-        """
-        Evaluate the model on the STS dataset with single sentences.
-
-        Args:
-            model (Any): The encoder model, could be HuggingFaceEncoder, OpenAIEncoder, etc.
-
-        Returns:
-            dict: Evaluation results with Pearson and Spearman correlations for various distance metrics.
-        """
 
         accelerator = model.accelerator
 

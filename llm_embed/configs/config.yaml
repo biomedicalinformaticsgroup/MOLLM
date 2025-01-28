@@ -13,7 +13,8 @@ model:
   # cache_dir: 
   kwargs:
     return_dict_in_generate: True
-    output_hidden_states: True  
+    output_hidden_states: True
+    do_sample: False
 
 tokenizer:
   kwargs:
@@ -22,7 +23,6 @@ tokenizer:
     padding: "max_length"
     truncation: True
     max_length: !!int 4024
-    stride: 0
     return_attention_mask: True
     return_token_type_ids: True
     return_overflowing_tokens: False
